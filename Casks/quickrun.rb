@@ -1,7 +1,7 @@
 cask "quickrun" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.7.12"
+  version "0.0.0-stale"
   sha256 arm:   "cd02098e5b3a04863964ce42911e41d1764419eb94dc04384ecbbc229168bbc0",
          intel: "4548ac038dc88ab820a406bc025520f3ec05bd4742f4af5819d5720a92187f97"
 
