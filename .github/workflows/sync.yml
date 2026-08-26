@@ -1,0 +1,51 @@
+# Keeps the formula and the cask level with the newest QuickRun release.
+#
+# QuickRun's own release workflow can push here too, but only with a personal access token: the
+# token a workflow gets by default may not write to another repository. This runs on the other side
+# of that wall, where the default token is enough - so the tap stays current whether or not that
+# secret is ever set, and a release that forgets the tap fixes itself within the hour.
+name: sync
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Take the newest formula and cask
+        run: |
+          set -eu
+          mkdir -p Formula Casks
+
+          base=https://github.com/fgilde/QuickRun/releases/latest/download
+          curl -fsSL -o Formula/quickrun.rb "$base/quickrun.rb"
+          curl -fsSL -o Casks/quickrun.rb "$base/quickrun-cask.rb"
+
+          # Both are generated from the release, so a truncated download would otherwise be
+          # committed as a broken formula.
+          grep -q 'class Quickrun < Formula' Formula/quickrun.rb
+          grep -q 'cask "quickrun"' Casks/quickrun.rb
+
+      - name: Commit if anything moved
+        run: |
+          set -eu
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "::notice::already current"
+            exit 0
+          fi
+
+          version=$(sed -n 's/.*version "\([^"]*\)".*/\1/p' Formula/quickrun.rb | head -1)
+          git commit -am "feat: quickrun $version"
+          git push
