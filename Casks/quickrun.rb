@@ -1,11 +1,11 @@
 cask "quickrun" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.8.0"
-  sha256 arm:   "436e0e46d95a74b0c21f16e96a11df7db063537bb42efe7d8bb6eee39e6adbbb",
-         intel: "3a9f2936be80ec3518e8591bcf1d944c8cb0e18d0d9662f859f8449c7240baa1"
+  version "0.8.1"
+  sha256 arm:   "0ea88b66e71352dd943330ebd771686e81ec34f058649c1d1c87017dadd13916",
+         intel: "7561f7787b77669554017e720da14d0c314997e4269e9a770d11e9aa9632b296"
 
-  url "https://github.com/fgilde/QuickRun/releases/download/v0.8.0/QuickRun-osx-#{arch}.app.zip",
+  url "https://github.com/fgilde/QuickRun/releases/download/v0.8.1/QuickRun-osx-#{arch}.app.zip",
       verified: "github.com/fgilde/QuickRun/"
   name "QuickRun"
   desc "Run any git repository with one click"
