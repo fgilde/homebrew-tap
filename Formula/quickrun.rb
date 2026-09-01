@@ -6,28 +6,28 @@
 class Quickrun < Formula
   desc "Run any git repository with one click"
   homepage "https://quickrun.org"
-  version "0.9.5"
+  version "0.9.6"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.5/quickrun-osx-arm64.tar.gz"
-      sha256 "7d400e07cff9f5014fce5dc9b48334d160eb4afa35d3d3fdba51894a1d29b782"
+      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.6/quickrun-osx-arm64.tar.gz"
+      sha256 "fa556ef6c0e669bb8dfec384cfaeeccbc58cdc3dd96ea0de496e9ce407e3015b"
     end
     on_intel do
-      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.5/quickrun-osx-x64.tar.gz"
-      sha256 "6ed923febec703706b95ffc16cd217b1a86413a3e7cbae2bc90a3908bb4d10a1"
+      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.6/quickrun-osx-x64.tar.gz"
+      sha256 "70a26613c99b239ad078d37f7c8d186a9108a65503afb0e9c799fced1836db7b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.5/quickrun-linux-arm64.tar.gz"
-      sha256 "bdea441b587222f72963a844002c0b4f483e780ebf95dadfcc74f8816ea165be"
+      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.6/quickrun-linux-arm64.tar.gz"
+      sha256 "bd2b49c95991d46176bf010d603bbd139aad33456870195abbfc691ea5e911a7"
     end
     on_intel do
-      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.5/quickrun-linux-x64.tar.gz"
-      sha256 "c2cb86e440248a1cb0fa66568eec8337a920b1c2ac910448c343eea7d1f27b8d"
+      url "https://github.com/fgilde/QuickRun/releases/download/v0.9.6/quickrun-linux-x64.tar.gz"
+      sha256 "3e4c28841e8b7edef352e436766d4defdb916f8301036cf1c3210a8594dbd9c7"
     end
   end
 
